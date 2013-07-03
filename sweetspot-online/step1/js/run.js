@@ -8,13 +8,7 @@ $(document).ready(function() {
     body.appendChild(elt);
   };
 
-  $.ajax({
-    url: './pages.html',
-    success: function (data) {
-      $('body').append(data);
-      loadScript('./js/main.js');
-      loadScript('./js/help.js');
-      loadScript('./js/license.js');
-    }
-  });
+  loadScript('./js/main.js');
+  loadScript('./js/help.js');
+  loadScript('./js/license.js');
 });
