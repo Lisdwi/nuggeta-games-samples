@@ -1,0 +1,95 @@
+/*
+ * Copyright (c) 2012, Intel Corporation.
+ *
+ * This program is licensed under the terms and conditions of the 
+ * Apache License, version 2.0.  The full text of the Apache License is at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ */
+
+.helpdialog {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    font-family: Sans;
+    visibility: hidden;
+}
+
+.helpdialog.shown {
+    visibility: visible;
+    -webkit-transition: background-color 0.5s;
+    background-color: rgba(0,0,0,.33);
+    z-index: 99;
+}
+
+.helpdialog .inner {
+    position: absolute;
+    top: 17%;
+    left : 21%;
+    height: 56%;
+    width: 58%;
+    border: 20px solid #e5e2c0;
+    background-color: #1a3542;
+    padding: 10px;
+    opacity: 0;
+}
+
+.helpdialog.shown .inner {
+    -webkit-transition: opacity 0.5s;
+    opacity: 1;
+}
+
+.helpdialog .inner .contents {
+    font-family: Arial;
+    font-size: 20px;
+    color: #ffffff;
+    cursor: default;
+}
+
+.helpdialog .inner .close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -10%;
+    left: 98%;
+    font-family: Sans;
+    font-weight: 900;
+    font-size: 50px;
+    text-align: center;
+    border: solid 10px #e5e2c0;
+    background-color: #e5e2c0;
+    -webkit-border-radius: 60px;
+    line-height: 24px;
+    cursor: pointer;
+    color: #1a3542;
+}
+
+.helplaunch {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 564px;
+    left: 27px;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+    -webkit-border-radius: 20px;
+    font-family: Arial;
+    font-size: 20px;
+    border: solid 1px #000000;
+    color: #000000;
+    z-index: 0;
+}
+
+#main_help {
+    opacity: 0.3;
+}
+
+#main_help:hover {
+    opacity: 1.0;
+}
+

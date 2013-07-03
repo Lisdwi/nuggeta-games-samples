@@ -1,0 +1,1117 @@
+/*
+ * Copyright (c) 2012, Intel Corporation.
+ *
+ * This program is licensed under the terms and conditions of the
+ * Apache License, version 2.0.  The full text of the Apache License is at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ */
+
+/* -------------------------------- global ----------------------------- */
+
+body {
+    margin: 0px;
+    -webkit-user-select: none;
+    background-color: "white";
+    box-shadow: 5px 5px 20px black;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    position: absolute;
+    width: 1024px;
+    height: 600px;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+
+#intro_page {
+    position: absolute;
+}
+
+#licensebtnl {
+  top: 564px;
+  left: 977px;
+}
+
+.game_page {
+    background-position: left top;
+
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    width: 1024px;
+    height: 600px;
+}
+
+/* 800 x 480 */
+@media (orientation: landscape) {
+  body { top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%) scale(0.78125, 0.8); }
+}
+/* 1024 x 600 */
+@media (min-width: 1024px) and (min-height: 600px) and (orientation: landscape) {
+  body { top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); }
+}
+/* 1280 x 720 */
+@media (min-width: 1280px) and (min-height: 720px) and (orientation: landscape) {
+  body { top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%) scale(1.25, 1.199); }
+}
+
+/* 480 x 800 */
+@media (orientation: portrait) {
+  body { top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%) rotate(90deg) scale(0.8, 0.78125); }
+}
+/* 600 x 989 */
+@media (min-width: 600px) and (min-height: 989px) and (orientation: portrait) {
+  body { top: 0%; left: 0%; -webkit-transform: translate(-50%, -50%) rotate(90deg) scale(0.9658, 1.0) translate(50%, -50%); }
+}
+/* 600 x 1024 */
+@media (min-width: 600px) and (min-height: 1024px) and (orientation: portrait) {
+  body { top: 0%; left: 0%; -webkit-transform: translate(-50%, -50%) rotate(90deg) translate(50%, -50%); }
+}
+/* 720 x 1230 */
+@media (min-width: 720px) and (min-height: 1230px) and (orientation: portrait) {
+  body { top: 0%; left: 0%; -webkit-transform: translate(-50%, -50%) rotate(90deg) scale(1.2, 1.199) translate(50%, -50%); }
+}
+/* 720 x 1280 */
+@media (min-width: 720px) and (min-height: 1280px) and (orientation: portrait) {
+  body { top: 0%; left: 0%; -webkit-transform: translate(-50%, -50%) rotate(90deg) scale(1.25, 1.199) translate(50%, -50%); }
+}
+
+input
+{
+    border: 0px;
+    padding: 0px;
+    color: #FFFFFF;
+    background-color: transparent;
+    font-family: 'Yellowtail';
+    font-size: 26pt;
+    text-align: center;
+}
+
+input:focus {
+    outline: none;
+}
+
+.active_button {
+    color: white;
+}
+
+.inactive_button {
+    color: gray;
+}
+
+/* -------------------------------- intro page ----------------------------- */
+
+#intro_bg {
+    background:url(../images/Home-background.jpg) no-repeat;
+    width: 100%;
+    height: 100%;
+    z:1;
+}
+
+@-webkit-keyframes intro_candyblue_anim {
+    0% { top:-211px; }
+    10% { top:-211px; }
+    90% { top:66px; }
+    100% { top:48px; }
+}
+
+.drop.candyblue {
+    position: absolute;
+    top: 48px;
+    left: 533px;
+    width: 152px;
+    height: 211px;
+    background:url(../images/3Dcandy-blue.png) no-repeat;
+    -webkit-animation: intro_candyblue_anim 0.4s ease-out 0s 1;
+}
+
+@-webkit-keyframes intro_candygreen_anim {
+    0% { top:-202px; }
+    90% { top:136px; }
+    100% { top:118px; }
+}
+
+.drop.candygreen {
+    position: absolute;
+    top: 118px;
+    left: 688px;
+    width: 172px;
+    height: 202px;
+    background:url(../images/3Dcandy-green.png) no-repeat;
+    -webkit-animation: intro_candygreen_anim 0.3s ease-out 0s 1;
+}
+
+@-webkit-keyframes intro_candyred_anim {
+    0% { top:-212px; }
+    20% { top:-212px; }
+    90% { top:66px; }
+    100% { top:48px; }
+}
+
+.drop.candyred {
+    position: absolute;
+    top: 48px;
+    left: 344px;
+    width: 152px;
+    height: 212px;
+    background:url(../images/3Dcandy-red.png) no-repeat;
+    -webkit-animation: intro_candyred_anim 0.5s ease-out 0s 1;
+}
+
+@-webkit-keyframes intro_candyorange_anim {
+    0% { top:-203px; }
+    30% { top:-203px; }
+    90% { top:136px; }
+    100% { top:118px; }
+}
+
+.drop.candyorange {
+    position: absolute;
+    top: 118px;
+    left: 168px;
+    width: 171px;
+    height: 203px;
+    background:url(../images/3Dcandy-orange.png) no-repeat;
+    -webkit-animation: intro_candyorange_anim 0.6s ease-out 0s 1;
+}
+
+#intro_playbutton {
+    cursor: pointer;
+    position: absolute;
+    top: 489px;
+    left: 380px;
+    width: 267px;
+    height: 71px;
+    line-height: 71px;
+    font-family: 'Yellowtail';
+    font-size: 24pt;
+    text-align: center;
+    color: white;
+}
+
+/* -------------------------------- player page ----------------------------- */
+
+#player_bg {
+    /*background:url(../images/PlayerNamesandColor-background.jpg) no-repeat;*/
+    background:url(../images/choose-color-bg.jpg) no-repeat;
+    width: 100%;
+    height: 100%;
+    z:1;
+}
+
+#player_player1_static {
+    position: absolute;
+    top: 30px;
+    left: 238px;
+    width: 190px;
+    height: 50px;
+    line-height: 71px;
+    font-family: 'Yellowtail';
+    font-size: 40pt;
+    text-align: center;
+    color: #25aae1;
+    text-shadow: -2px -2px 0px #fff;
+}
+
+#player_player1 {
+    position: absolute;
+    top: 110px;
+    left: 238px;
+    width: 190px;
+    height: 44px;
+}
+
+#player1name {
+    width: 100%;
+}
+
+#player_player2_static {
+    position: absolute;
+    top: 30px;
+    left: 590px;
+    width: 190px;
+    height: 50px;
+    line-height: 71px;
+    font-family: 'Yellowtail';
+    font-size: 40pt;
+    text-align: center;
+    color: #25aae1;
+    text-shadow: -2px -2px 0px #fff;
+}
+
+#player_player2 {
+    position: absolute;
+    top: 110px;
+    left: 590px;
+    width: 190px;
+    height: 44px;
+}
+
+#player2name {
+    width: 100%;
+}
+
+#player_player1red {
+    cursor: pointer;
+    position: absolute;
+    top: 270px;
+    left: 375px;
+    width: 158px;
+    height: 85px;
+}
+
+#player_text_chooseyour {
+    /*position: absolute;
+    top: 269px;
+    left: 320px;
+    width: 380px;
+    height: 70px;
+    line-height: 70px;
+    font-family: 'Yellowtail';
+    font-size: 40pt;
+    text-align: center;
+    color: #ee463c;
+    text-shadow: -2px -2px 0px #fff;*/
+
+    position: absolute;
+    top: 120px;
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    font-family: 'Yellowtail';
+    font-size: 63pt;
+    text-align: center;
+    color: #ee463c;
+    text-shadow: -2px -2px 0px #fff;
+}
+
+#player_text_color {
+    position: absolute;
+    top: 270px;
+    left: 372px;
+    width: 280px;
+    height: 100px;
+    line-height: 100px;
+    font-family: 'Yellowtail';
+    font-size: 60pt;
+    text-align: center;
+    color: #ee463c;
+    text-shadow: -2px -2px 0px #fff;
+}
+
+.redsolid {
+    background:url(../images/Ribbon-red.png) no-repeat;
+    background-position: center;
+}
+
+#player_player1green {
+    cursor: pointer;
+    position: absolute;
+    top: 270px;
+    left: 550px;
+    width: 158px;
+    height: 85px;
+}
+
+.greensolid {
+    background:url(../images/Ribbon-green.png) no-repeat;
+    background-position: center;
+}
+
+#player_player1blue {
+    cursor: pointer;
+    position: absolute;
+    top: 270px;
+    left: 202px;
+    width: 158px;
+    height: 85px;
+}
+
+.bluesolid {
+    background:url(../images/Ribbon-blue.png) no-repeat;
+    background-position: center;
+}
+
+#player_player1orange {
+    cursor: pointer;
+    position: absolute;
+    top: 270px;
+    left: 720px;
+    width: 158px;
+    height: 85px;
+}
+
+.orangesolid {
+    background:url(../images/Ribbon-orange.png) no-repeat;
+    background-position: center;
+}
+
+#player_player2red {
+    cursor: pointer;
+    position: absolute;
+    top: 290px;
+    left: 666px;
+    width: 158px;
+    height: 85px;
+}
+
+#player_player2green {
+    cursor: pointer;
+    position: absolute;
+    top: 486px;
+    left: 627px;
+    width: 158px;
+    height: 85px;
+}
+
+#player_player2blue {
+    cursor: pointer;
+    position: absolute;
+    top: 388px;
+    left: 650px;
+    width: 158px;
+    height: 85px;
+}
+
+#player_player2orange {
+    cursor: pointer;
+    position: absolute;
+    top: 192px;
+    left: 664px;
+    width: 158px;
+    height: 85px;
+}
+
+.pick.red {
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    left: 36px;
+    background:url(../images/Candy-ColorSelect-red.png) no-repeat;
+}
+
+.pick.blue {
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    left: 36px;
+    background:url(../images/Candy-ColorSelect-blue.png) no-repeat;
+}
+
+.pick.green {
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    left: 36px;
+    background:url(../images/Candy-ColorSelect-green.png) no-repeat;
+}
+
+.pick.orange {
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    left: 36px;
+    background:url(../images/Candy-ColorSelect-orange.png) no-repeat;
+}
+
+#player_nextbutton {
+    cursor: pointer;
+    position: absolute;
+    top: 489px;
+    left: 897px;
+    width: 127px;
+    height: 73px;
+    line-height: 73px;
+    font-family: 'Yellowtail';
+    font-size: 24pt;
+    text-align: center;
+}
+
+/* -------------------------------- type page ----------------------------- */
+
+#type_bg {
+    background:url(../images/ChooseGame-background.jpg) no-repeat;
+    width: 100%;
+    height: 100%;
+    z:1;
+}
+
+#type_onegame {
+    cursor: pointer;
+    position: absolute;
+    top: 118px;
+    left: 158px;
+    width: 206px;
+    height: 330px;
+}
+
+#type_onegame_text {
+    position: absolute;
+    top: 378px;
+    left: 158px;
+    width: 206px;
+    height: 71px;
+    line-height: 71px;
+    font-family: 'Yellowtail';
+    font-size: 40pt;
+    text-align: center;
+    color: #25aae1;
+    text-shadow: -2px -2px 0px #fff;
+}
+
+#type_bestofthree {
+    cursor: pointer;
+    position: absolute;
+    top: 118px;
+    left: 409px;
+    width: 206px;
+    height: 330px;
+}
+
+#type_bestofthree_text {
+    position: absolute;
+    top: 378px;
+    left: 409px;
+    width: 400px;
+    height: 71px;
+    line-height: 71px;
+    font-family: 'Yellowtail';
+    font-size: 40pt;
+    text-align: center;
+    color: #25aae1;
+    text-shadow: -2px -2px 0px #fff;
+}
+
+#type_bestoffive {
+    cursor: pointer;
+    position: absolute;
+    top: 118px;
+    left: 658px;
+    width: 206px;
+    height: 330px;
+}
+
+#type_bestoffive_text {
+    position: absolute;
+    top: 378px;
+    left: 658px;
+    width: 206px;
+    height: 71px;
+    line-height: 71px;
+    font-family: 'Yellowtail';
+    font-size: 40pt;
+    text-align: center;
+    color: #25aae1;
+    text-shadow: -2px -2px 0px #fff;
+}
+
+.selectedtype {
+    background:url(../images/TriangleSelector-down.png) no-repeat;
+    background-position: center top;
+}
+
+#type_startbutton, #cancel_searching_player, #wait_searching_player, #cancel_wait_challenge {
+    /*cursor: pointer;
+    position: absolute;
+    top: 489px;
+    left: 897px;
+    width: 127px;
+    height: 71px;
+    line-height: 71px;
+    font-family: 'Yellowtail';
+    font-size: 24pt;
+    text-align: center;*/
+
+    cursor: pointer;
+    position: absolute;
+    top: 489px;
+    left: 380px;
+    width: 267px;
+    height: 71px;
+    line-height: 71px;
+    font-family: 'Yellowtail';
+    font-size: 24pt;
+    text-align: center;
+    color: white;
+}
+
+/* -------------------------------- game page ----------------------------- */
+
+#game_bg {
+    background:url(../images/GameBoard-background.jpg) no-repeat;
+    width: 100%;
+    height: 100%;
+    z:1;
+}
+
+#game_player1marquee {
+    position: absolute;
+    top: 206px;
+    left: 0px;
+    width: 250px;
+    height: 176px;
+}
+
+.game_player1blue { background:url(../images/RibbonCandies-left-blue.png) no-repeat; }
+.game_player1green { background:url(../images/RibbonCandies-left-green.png) no-repeat; }
+.game_player1red { background:url(../images/RibbonCandies-left-red.png) no-repeat; }
+.game_player1orange { background:url(../images/RibbonCandies-left-orange.png) no-repeat; }
+
+#game_player1name {
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    width: 200px;
+    height: 50px;
+    font-family: 'Yellowtail';
+    font-size: 26pt;
+    text-align: center;
+    color: white;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#game_player1avatar {
+    margin: 200px 0px 0px 60px;
+}
+
+#game_player1avatar img {
+    width: 100px;
+    height: 100px;
+    border: 8px solid #aaa;
+}
+
+#game_player2marquee {
+    position: absolute;
+    top: 206px;
+    left: 780px;
+    width: 244px;
+    height: 176px;
+}
+
+.game_player2blue { background:url(../images/RibbonCandies-right-blue.png) no-repeat; }
+.game_player2green { background:url(../images/RibbonCandies-right-green.png) no-repeat; }
+.game_player2red { background:url(../images/RibbonCandies-right-red.png) no-repeat; }
+.game_player2orange { background:url(../images/RibbonCandies-right-orange.png) no-repeat; }
+
+#game_player2name {
+    position: absolute;
+    top: 100px;
+    left: 44px;
+    width: 200px;
+    height: 50px;
+    font-family: 'Yellowtail';
+    font-size: 26pt;
+    text-align: center;
+    color: white;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#game_player2avatar {
+    margin: 200px 0px 0px 60px;
+}
+
+#game_player2avatar img {
+    width: 100px;
+    height: 100px;
+    border: 8px solid #aaa;
+}
+
+#game_player1active {
+    position: absolute;
+    top: 303px;
+    left: 208px;
+    height: 66px;
+    width: 41px;
+    background:url(../images/TriangleSelector-left.png) no-repeat;
+}
+
+#game_player2active {
+    position: absolute;
+    top: 303px;
+    left: 780px;
+    height: 66px;
+    width: 41px;
+    background:url(../images/TriangleSelector-right.png) no-repeat;
+}
+
+#game_column1 {
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 261px;
+    width: 73px;
+    height: 600px;
+}
+
+#game_column2 {
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 334px;
+    width: 73px;
+    height: 600px;
+}
+
+#game_column3 {
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 407px;
+    width: 73px;
+    height: 600px;
+}
+
+#game_column4 {
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 480px;
+    width: 73px;
+    height: 600px;
+}
+
+#game_column5 {
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 553px;
+    width: 73px;
+    height: 600px;
+}
+
+#game_column6 {
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 626px;
+    width: 73px;
+    height: 600px;
+}
+
+#game_column7 {
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 699px;
+    width: 73px;
+    height: 600px;
+}
+
+#game_column_selector {
+    position: absolute;
+    top: 25px;
+    width: 82px;
+    height: 95px;
+    background:url(../images/ColumnSelector.png) no-repeat;
+}
+
+.game_selcol0 { left: 256px; }
+.game_selcol1 { left: 329px; }
+.game_selcol2 { left: 402px; }
+.game_selcol3 { left: 475px; }
+.game_selcol4 { left: 548px; }
+.game_selcol5 { left: 621px; }
+.game_selcol6 { left: 694px; }
+
+#game_column_selector_candy {
+    position: absolute;
+    top: 28px;
+}
+
+.game_col0 { left: 261px; }
+.game_col1 { left: 334px; }
+.game_col2 { left: 407px; }
+.game_col3 { left: 480px; }
+.game_col4 { left: 553px; }
+.game_col5 { left: 626px; }
+.game_col6 { left: 699px; }
+
+@-webkit-keyframes candy_row0_anim {0% { top:28px; } 100% { top:490px; }}
+@-webkit-keyframes candy_row1_anim {0% { top:28px; } 100% { top:416px; }}
+@-webkit-keyframes candy_row2_anim {0% { top:28px; } 100% { top:342px; }}
+@-webkit-keyframes candy_row3_anim {0% { top:28px; } 100% { top:268px; }}
+@-webkit-keyframes candy_row4_anim {0% { top:28px; } 100% { top:194px; }}
+@-webkit-keyframes candy_row5_anim {0% { top:28px; } 100% { top:120px; }}
+
+.game_row0 { top: 490px; -webkit-animation: candy_row0_anim 0.6s ease-in 0s 1; }
+.game_row1 { top: 416px; -webkit-animation: candy_row1_anim 0.6s ease-in 0s 1; }
+.game_row2 { top: 342px; -webkit-animation: candy_row2_anim 0.6s ease-in 0s 1; }
+.game_row3 { top: 268px; -webkit-animation: candy_row3_anim 0.6s ease-in 0s 1; }
+.game_row4 { top: 194px; -webkit-animation: candy_row4_anim 0.6s ease-in 0s 1; }
+.game_row5 { top: 120px; -webkit-animation: candy_row5_anim 0.6s ease-in 0s 1; }
+
+@-webkit-keyframes piece_win_anim {
+    0% { -webkit-transform:scale(1); }
+    50% { -webkit-transform:scale(1.2); }
+    100% { -webkit-transform:scale(1); }
+}
+
+.game_piece_win1 { -webkit-animation: piece_win_anim 0.6s linear 0s 1;}
+.game_piece_win2 { -webkit-animation: piece_win_anim 0.6s linear 0.1s 1;}
+.game_piece_win3 { -webkit-animation: piece_win_anim 0.6s linear 0.2s 1;}
+.game_piece_win4 { -webkit-animation: piece_win_anim 0.6s linear 0.3s 1;}
+
+.game_piece_blue {
+    position: absolute;
+    height: 74px;
+    width: 73px;
+    background:url(../images/Candy-Game-Blue.png) no-repeat;
+    background-position: center;
+}
+
+.game_piece_green {
+    position: absolute;
+    height: 74px;
+    width: 73px;
+    background:url(../images/Candy-Game-Green.png) no-repeat;
+    background-position: center;
+}
+
+.game_piece_red {
+    position: absolute;
+    height: 74px;
+    width: 73px;
+    background:url(../images/Candy-Game-Red.png) no-repeat;
+    background-position: center;
+}
+
+.game_piece_orange {
+    position: absolute;
+    height: 74px;
+    width: 73px;
+    background:url(../images/Candy-Game-orange.png) no-repeat;
+    background-position: center;
+}
+
+#game_player1_wins {
+    position: absolute;
+    top: 64px;
+    left: 35px;
+    width: 50px;
+    height: 70px;
+    line-height: 70px;
+    font-family: 'Lato';
+    font-size: 60pt;
+    text-align: center;
+    color: white;
+}
+
+#game_player2_wins {
+    position: absolute;
+    top: 64px;
+    left: 940px;
+    width: 50px;
+    height: 70px;
+    line-height: 70px;
+    font-family: 'Lato';
+    font-size: 60pt;
+    text-align: center;
+    color: white;
+}
+
+#quit_dlg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 600px;
+    width: 1024px;
+}
+
+#quit_dlg_bg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 600px;
+    width: 1024px;
+    opacity: 0.5;
+    background-color: gray;
+}
+
+#quit_dlg_img {
+    position: absolute;
+    top: 240px;
+    left: 172px;
+    height: 119px;
+    width: 680px;
+    background:url(../images/GameOver-banner.png) no-repeat;
+    background-position: center;
+    line-height: 119px;
+    font-family: 'Yellowtail';
+    font-size: 55pt;
+    text-align: center;
+    color: white;
+}
+
+#quit_dlg_no {
+    cursor: pointer;
+    position: absolute;
+    top: 273px;
+    left: 0px;
+    height: 50px;
+    width: 280px;
+    line-height: 50px;
+    font-family: 'Yellowtail';
+    font-size: 35pt;
+    text-align: right;
+    color: white;
+}
+
+#quit_dlg_yes {
+    cursor: pointer;
+    position: absolute;
+    top: 273px;
+    left: 724px;
+    height: 50px;
+    width: 300px;
+    line-height: 50px;
+    font-family: 'Yellowtail';
+    font-size: 35pt;
+    text-align: left;
+    color: white;
+}
+
+#game_quit {
+    cursor: pointer;
+    position: absolute;
+    top: 559px;
+    left: 975px;
+    height: 34px;
+    width: 34px;
+}
+
+/* -------------------------------- win page ----------------------------- */
+
+#win_bg {
+    background:url(../images/Winner-background.jpg) no-repeat;
+    width: 100%;
+    height: 100%;
+    z:1;
+}
+
+#win_banner {
+    position: absolute;
+    top: 30px;
+    left: 13px;
+    height: 223px;
+    width: 1010px;
+    line-height: 223px;
+    font-family: 'Yellowtail';
+    font-size: 70pt;
+    text-align: center;
+    color: white;
+}
+
+.win_banner_blue { background:url(../images/Winner-Banner-blue.png) no-repeat;}
+.win_banner_green { background:url(../images/Winner-Banner-green.png) no-repeat;}
+.win_banner_red { background:url(../images/Winner-Banner-red.png) no-repeat;}
+.win_banner_orange { background:url(../images/Winner-Banner-orange.png) no-repeat;}
+
+#win_playername {
+    position: absolute;
+    top: 390px;
+    left: 0px;
+    height: 70px;
+    width: 1024px;
+    line-height: 70px;
+    font-family: 'Yellowtail';
+    font-size: 35pt;
+    text-align: center;
+}
+
+.win_playername_blue { color: #25aae1;}
+.win_playername_green { color: #a0c83a;}
+.win_playername_red { color: #ef4036;}
+.win_playername_orange { color: #f58a1f;}
+
+#win_playagain {
+    position: absolute;
+    top: 490px;
+    left: 262px;
+    height: 93px;
+    width: 250px;
+}
+
+#win_playagain_text {
+    cursor: pointer;
+    position: absolute;
+    top: 490px;
+    left: 312px;
+    height: 93px;
+    width: 200px;
+    line-height: 92px;
+    font-family: 'Yellowtail';
+    font-size: 35pt;
+    text-align: center;
+    color: white;
+}
+
+.win_playagain_blue { background:url(../images/Ribbon-blue-left.png) no-repeat;}
+.win_playagain_green { background:url(../images/Ribbon-green-left.png) no-repeat;}
+.win_playagain_orange { background:url(../images/Ribbon-orange-left.png) no-repeat;}
+.win_playagain_red { background:url(../images/Ribbon-red-left.png) no-repeat;}
+
+#win_startover {
+    position: absolute;
+    top: 490px;
+    left: 512px;
+    height: 93px;
+    width: 250px;
+}
+
+#win_startover_text {
+    cursor: pointer;
+    position: absolute;
+    top: 490px;
+    left: 524px;
+    height: 93px;
+    width: 200px;
+    line-height: 92px;
+    font-family: 'Yellowtail';
+    font-size: 35pt;
+    text-align: center;
+    color: white;
+}
+
+.win_startover_blue { background:url(../images/Ribbon-blue-right.png) no-repeat;}
+.win_startover_green { background:url(../images/Ribbon-green-right.png) no-repeat;}
+.win_startover_red { background:url(../images/Ribbon-red-right.png) no-repeat;}
+.win_startover_orange { background:url(../images/Ribbon-orange-right.png) no-repeat;}
+
+/* Nuggeta */
+
+#facebook_log, #visitor_log, #quick_match, #challenge_friend, #challenges, #scores, #fb_scores {
+    position: absolute;
+    line-height: 71px;
+    font-family: 'Yellowtail';
+    font-size: 48pt;
+    text-align: center;
+    color: #25aae1;
+    text-shadow: -2px -2px 0px #fff;
+    width:100%;
+    cursor: pointer;
+}
+
+/* -------------------------------- fonts ----------------------------- */
+
+@font-face {
+    font-family: 'Yellowtail';
+    src: url('../fonts/Yellowtail-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato-Black.ttf');
+}
+
+/*
+ * Nuggeta - Sweetspot tutorial - Step 1
+ */
+
+#visitor_log {
+    top: 270px;
+}
+
+/*
+ * Nuggeta - Sweetspot tutorial - Step 2
+ */
+
+#back_bg {
+    background:url(../images/back-background.jpg) no-repeat;
+    width: 100%;
+    height: 100%;
+    z:1;
+}
+
+.locked {
+    cursor:normal;
+    opacity:0.5;
+}
+
+.back_bottom_right {
+    position:absolute;
+    top:495px;
+    width:100px;
+    color: #FFF;
+    font-family: 'Yellowtail';
+    font-size: 30pt;
+    text-shadow: none;
+    left:915px;
+    cursor:pointer;
+}
+
+#win_score {
+    position: absolute;
+    text-align: center;
+    line-height: 71px;
+    font-family: 'Yellowtail';
+    font-size: 90pt;
+    color: #25aae1;
+    text-shadow: -2px -2px 0px #fff;
+    text-align: center;
+    top: 270px;
+    width: 100%;
+}
+
+#searching_player_text {
+    position: absolute;
+    top: 250px;
+    width: 100%;
+    height: 0;
+    line-height: 71px;
+    font-family: 'Yellowtail';
+    font-size: 61pt;
+    text-align: center;
+    color: #25aae1;
+    text-shadow: -2px -2px 0px #fff;
+}
+
+#player_left_dlg_bg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 600px;
+    width: 1024px;
+    opacity: 0.5;
+    background-color: gray;
+}
+
+#player_left_dlg_img {
+    position: absolute;
+    top: 240px;
+    left: 172px;
+    height: 119px;
+    width: 680px;
+    background:url(../images/PlayerLeft-banner.png) no-repeat;
+    background-position: center;
+    line-height: 119px;
+    font-family: 'Yellowtail';
+    font-size: 55pt;
+    text-align: center;
+    color: white;
+}
+
+#player_left_dlg_ok {
+    cursor: pointer;
+    position: absolute;
+    top: 273px;
+    left: 724px;
+    height: 50px;
+    width: 300px;
+    line-height: 50px;
+    font-family: 'Yellowtail';
+    font-size: 35pt;
+    text-align: left;
+    color: white;
+}
+
+/*
+ * Nuggeta - Sweetspot tutorial - Step 3
+ */
+
