@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+ * Copyright (c) 2012, Intel Corporation.
+ *
+ * This program is licensed under the terms and conditions of the
+ * Apache License, version 2.0.  The full text of the Apache License is at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="">
+    <script>
+    // figure out the "real" device width (screen.width);
+    var deviceWidth = screen.width;
+
+    // figure out the layout viewport width (document.documentElement.clientWidth)
+    var layoutViewportWidth = document.documentElement.clientWidth;
+
+    // work out the ratio between them
+    var scale = layoutViewportWidth / deviceWidth;
+
+    // for the viewport tag, set width=<device width> and
+    // scale=<layout viewport width> / <device width>
+    var content = 'width=' + deviceWidth + ', initial-scale=' + scale +
+                  ', maximum-scale=' + scale + ', minimum-scale=' + scale;
+
+    document.querySelector('[name=viewport]').setAttribute('content', content);
+    </script>
+    
+    <title>Nuggeta - Sweetspot Online</title>
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/license.css">
+    <link rel="stylesheet" href="css/help.css">
+</head>
+<body>
+    <div id="intro_page" class="game_page">
+        <div id="intro_bg"></div>
+
+        <div data-drop="candyblue"></div>
+        <div data-drop="candygreen"></div>
+        <div data-drop="candyred"></div>
+        <div data-drop="candyorange"></div>
+
+        <div id="intro_playbutton">Connecting...</div>
+
+        <div id="licensebtnl"> i </div>
+    </div>
+    <script src="lib/jq.mobi.min.js"></script>
+    <script src="js/run.js"></script>
+    <script src="js/sweetspot-nuggeta.js"></script>
+    <script type="text/javascript"></script>
+
+
+
+</body>
+</html>
