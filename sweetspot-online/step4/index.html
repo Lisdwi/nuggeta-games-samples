@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--
+ * Copyright (c) 2012, Intel Corporation.
+ *
+ * This program is licensed under the terms and conditions of the
+ * Apache License, version 2.0.  The full text of the Apache License is at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="">
+    <script>
+    // figure out the "real" device width (screen.width);
+    var deviceWidth = screen.width;
+
+    // figure out the layout viewport width (document.documentElement.clientWidth)
+    var layoutViewportWidth = document.documentElement.clientWidth;
+
+    // work out the ratio between them
+    var scale = layoutViewportWidth / deviceWidth;
+
+    // for the viewport tag, set width=<device width> and
+    // scale=<layout viewport width> / <device width>
+    var content = 'width=' + deviceWidth + ', initial-scale=' + scale +
+                  ', maximum-scale=' + scale + ', minimum-scale=' + scale;
+
+    document.querySelector('[name=viewport]').setAttribute('content', content);
+    </script>
+    
+    <title>Nuggeta - Sweetspot Online</title>
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/license.css">
+    <link rel="stylesheet" href="css/help.css">
+</head>
+<body>
+    <div id="intro_page" class="game_page">
+        <div id="intro_bg"></div>
+
+        <div data-drop="candyblue"></div>
+        <div data-drop="candygreen"></div>
+        <div data-drop="candyred"></div>
+        <div data-drop="candyorange"></div>
+
+        <div id="intro_playbutton">Connecting...</div>
+
+        <div id="licensebtnl"> i </div>
+    </div>
+    <script src="lib/jq.mobi.min.js"></script>
+    <script src="js/run.js"></script>
+    <script src="js/sweetspot-nuggeta.js"></script>
+    <script type="text/javascript"></script>
+	
+	<div id="help_dialog" class="helpdialog">
+     <div class="inner">
+       <div id="help_close" class="close"> x </div>
+       <div id="help_contents" class="contents">
+           Try to be the first to get four of your candies in a row.
+           <br><br>
+           First, choose what color your candies will be. Then choose
+           a single game, best two out of three, or best three out of five.
+           <br><br>
+           Take turns, with a friend, clicking to drop your candies down
+           the column where you want your candy to go. The first to get
+           four of their candies lined up in any direction (vertical,
+           horizontal, or diagonal) wins! If the board fills up without
+           anyone winning, everything is cleared off, and the game continues.
+           <br><br>
+           If you want to restart a game, click the X at the bottom-right
+           of the screen, and click Yes and you’ll be taken back to the
+           beginning. If you do this by mistake, click No, and your current
+           game continues.
+       </div>
+     </div>
+	</div>
+	<div id="menu_page" class="game_page" style="display: none">
+	    <div id="win_bg"></div>
+	    <div id="visitor_log">Play as visitor</div>
+	    <div id="scores">Scores</div>
+	    <div id="facebook_log"><img src="images/Facebook.png" style="margin-right:30px;vertical-align:middle;width:70px;height:70px;"/> Log with facebook</div>
+	</div>
+	<div id="logged_menu" class="game_page" style="display: none">
+	    <div id="back_bg"></div>
+	    <div id="quick_match">Quick match</div>
+	    <div id="fb_scores">Scores</div>
+	    <div id="challenge_friend">Challenge friend</div>
+	    <div id="challenges">Challenges</div>
+	    <div id="logged_menu_back" class="back_bottom_right">Logout</div>
+	</div>
+	<div id="friend_page" class="game_page" style="display: none">
+	    <div id="back_bg"></div>
+	    <div id="friend_list"></div>
+	    <div id="friend_page_back" class="back_bottom_right">Back</div>
+	</div>
+	<div id="challenge_list_page" class="game_page" style="display: none">
+	    <div id="back_bg"></div>
+	    <div id="challenges_list"></div>
+	    <div id="challenge_list_back" class="back_bottom_right">Back</div>
+	</div>
+	<div id="game_list_page" class="game_page" style="display: none">
+	    <div id="back_bg"></div>
+	    <div id="game_list"></div>
+	    <div id="game_list_back" class="back_bottom_right">Back</div>
+	</div>
+	<div id="scores_page" class="game_page" style="display: none">
+	    <div id="back_bg"></div>
+	    <div id="leaderboard_name"></div>
+	    <div id="scores_list"></div>
+	    <div id="score_page_back" class="back_bottom_right">Back</div>
+	</div>
+	<div id="choose_color_page" class="game_page" style="display: none">
+	    <div id="player_bg"></div>
+	    <div id="player_text_chooseyour">Choose your color</div>
+	    <div id="player_player1red">
+	      <div class="pick red" data-player="1" data-color="1"></div>
+	    </div>
+	    <div id="player_player1blue">
+	      <div class="pick blue" data-player="1" data-color="2"></div>
+	    </div>
+	    <div id="player_player1green" class="locked">
+	      <div class="pick green" data-player="1" data-color="3"></div>
+	    </div>
+	    <div id="player_player1orange" class="locked">
+	      <div class="pick orange" data-player="1" data-color="0"></div>
+	    </div>
+	    <div id="type_startbutton" class="active_button">Start</div>
+	</div>
+	<div id="wait_challenge_page" class="game_page" style="display: none">
+	    <div id="player_bg"></div>
+	    <div id="searching_player_text">Waiting for player...</div>
+	    <div id="cancel_wait_challenge" class="active_button">Cancel</div>
+	</div>
+	<div id="game_page" class="game_page" style="display: none">
+	    <div id="game_bg"></div>
+	    <input type="text" id="player1name" size=13 disabled="disabled" style="display:none;"/>
+	    <input type="text" id="player2name" size=13 disabled="disabled" style="display:none;"/>
+	    <div id="game_player1marquee"><div id="game_player1name"></div><div id="game_player1avatar"></div></div>
+	    <div id="game_player2marquee"><div id="game_player2name"></div><div id="game_player2avatar"></div></div>
+	    <div id="game_player1active"></div>
+	    <div id="game_player2active" style="display: none"></div>
+	    <div id="game_column_selector" style="display: none"></div>
+	    <div id="game_column_selector_candy" style="display: none"></div>
+	    <div id="game_grid"></div>
+	    <div id="game_column1"></div>
+	    <div id="game_column2"></div>
+	    <div id="game_column3"></div>
+	    <div id="game_column4"></div>
+	    <div id="game_column5"></div>
+	    <div id="game_column6"></div>
+	    <div id="game_column7"></div>
+	    <div id="game_player1_wins">0</div>
+	    <div id="game_player2_wins">0</div>
+	    <div id="game_quit"></div>
+	    <div id="quit_dlg" style="display: none">
+	        <div id="quit_dlg_bg"></div>
+	        <div id="quit_dlg_img">Start Over?</div>
+	        <div id="quit_dlg_no">No</div>
+	        <div id="quit_dlg_yes">Yes</div>
+	    </div>
+	    <div id="player_left_dlg" style="display: none">
+	        <div id="player_left_dlg_bg"></div>
+	        <div id="player_left_dlg_img">Player left</div>
+	        <div id="player_left_dlg_ok">Ok</div>
+	    </div>
+	</div>
+	<div id="main_help" class="helplaunch"> ? </div>
+	<div id="licensepage" style="display: none">
+	    <div id="licensetext"><div id="licensescroll"></div></div>
+	    <div id="licensebtnq" class="licensebtn">Back</div>
+	</div>
+	<div id="win_page" class="game_page" style="display: none">
+	    <div id="win_bg"></div>
+	    <div id="win_banner"></div>
+	    <div id="win_score"></div>
+	    <div id="win_submit_score">Submit score</div>
+	    <!--div id="win_playername"></div-->
+	    <div id="win_playagain"></div>
+	    <div id="win_startover"></div>
+	    <div id="win_playagain_text">Play Again</div>
+	    <div id="win_startover_text">Start Over</div>
+	</div>
+	<div id="searching_player_page" class="game_page" style="display: none">
+	    <div id="player_bg"></div>
+	    <div id="searching_player_text">Searching Player...</div>
+	    <div id="cancel_searching_player" class="active_button">Cancel</div>
+	</div>
+	<div id="achievement_page" class="game_page" style="display: none">
+	    <div id="player_bg"></div>
+	    <div id="achievement_title"></div>
+	    <div id="achievement_img"></div>
+	    <div id="achievement_back_button">Back</div> 
+	</div> 
+</body>
+</html>
