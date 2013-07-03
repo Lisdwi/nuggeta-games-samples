@@ -892,9 +892,9 @@ var log = NLoggerFactory.getLogger("SweetSpot");
 function onConnectionReady(message) {
     log.info("Connection ready");
     $("#intro_playbutton").text("Play");
-
-    nuggetaPlug.getAchievementBoard();
 }
+
+
 
 function onConnectionFail(message) {
     log.info("Connection failed");

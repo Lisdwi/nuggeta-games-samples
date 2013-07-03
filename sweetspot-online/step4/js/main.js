@@ -810,12 +810,8 @@ var gameTypePage = function () {
       $("#game_player2name").text(SweetSpot.player2name);
       $("#type_page").hide();
 
-	if (immediateJoin) {
 	    nuggetaPlug.searchImmediateGame();
 	    showScreen("searching_player_page");
-	} else {
-	    nuggetaPlug.joinGame(gameIdToJoin);
-	}
 
 $
 }
@@ -933,9 +929,9 @@ function sendThinking (column) {
 function onConnectionReady(message) {
     log.info("Connection ready");
     $("#intro_playbutton").text("Play");
-
-    nuggetaPlug.getAchievementBoard();
 }
+
+
 
 function onConnectionFail(message) {
     log.info("Connection failed");
@@ -992,16 +988,6 @@ function invalidJoinGame() {
     }
 }
 
-function onSearchImmediateGameResponse(message) {
-    game = message.getGame();
-
-    if(message.getSearchImmediateGameStatus() == SearchImmediateGameStatus.ACCEPTED){
-        initFirstGame();
-    } else {
-        invalidJoinGame();
-    }
-}
-
 function onPlayerEnterGame(message) {
     var myOponnent = message.getPlayer();
 
@@ -1029,6 +1015,17 @@ function onJoinGameResponse(message) {
 
 function quit_game() {
 	goToScreen("menu_page");
+}
+
+
+function onSearchImmediateGameResponse(message) {
+    game = message.getGame();
+
+    if(message.getSearchImmediateGameStatus() == SearchImmediateGameStatus.ACCEPTED){
+        initFirstGame();
+    } else {
+        invalidJoinGame();
+    }
 }
 
 
@@ -1107,8 +1104,6 @@ $("#intro_playbutton").click(function() {
 });
 
 $("#visitor_log").click(function() {
-    immediateJoin = true;
-
     showScreen("choose_color_page");
 });
 
