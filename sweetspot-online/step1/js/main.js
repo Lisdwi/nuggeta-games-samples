@@ -353,8 +353,6 @@ function _startMove(column){
     if(row >= 6)
         return;
 
-    //$SEND_SELECTED_COLUMN
-
     /* set the board to indicate it's the next player's move */
 
     log.info("activePlayer is " + SweetSpot.activeplayer);
@@ -432,7 +430,7 @@ function game_over(player) {
 
     if(player == 0) {
         $("#win_banner").html("Winner"); 
-            //$("#win_playername").text(SweetSpot.player1name);  
+            $("#win_playername").text(SweetSpot.player1name);  
             $("#win_score").html( ((42 - shotCount) * 1234) + " points");
 
             $("#win_submit_score").show();
@@ -447,7 +445,7 @@ function game_over(player) {
             $("#win_submit_score").hide();
 
             $("#win_score").html("");
-            //$("#win_playername").text(SweetSpot.player2name);
+            $("#win_playername").text(SweetSpot.player2name);
         }
 
         for(var i = 0; i < 4; i++)
@@ -469,7 +467,6 @@ function game_over(player) {
         }
         showScreen("win_page");
 
-        //$SEND_ACHIEVE_CALL
     }
 
     function create_game () {
@@ -651,8 +648,6 @@ function game_over(player) {
             return;
         }
         
-        //$SEND_THINKING
-
         SweetSpot.activecolumn = column;
         _updateSelector(column);
    }
@@ -745,8 +740,6 @@ function game_over(player) {
         var player = parseInt(elt.attr('data-player'));
         var color = parseInt(elt.attr('data-color'));
 
-        //$CHECK_ACHIEVEMENT
-
         setcolor(player, color);
 
         if (color == 1) {
@@ -804,7 +797,6 @@ var gameTypePage = function () {
       $("#game_player2name").text(SweetSpot.player2name);
       $("#type_page").hide();
 
-    //$SEND_JOIN_MULTIPLAYER
 }
 });
 
@@ -893,10 +885,6 @@ var log = NLoggerFactory.getLogger("SweetSpot");
  * Send functions
  */
 
-//$SEND_MULTIPLAYER
-
-//$SEND_ACHIEVE_METHOD
-
 /*
  * Nuggeta callbacks
  */
@@ -904,55 +892,29 @@ var log = NLoggerFactory.getLogger("SweetSpot");
 function onConnectionReady(message) {
     log.info("Connection ready");
     $("#intro_playbutton").text("Play");
+
     nuggetaPlug.getAchievementBoard();
 }
+
 function onConnectionFail(message) {
     log.info("Connection failed");
     $("#intro_playbutton").text("Failed");
 }
 
 
-//$CALLBACK_MULTIPLAYER
-
-//$CALLBACK_FACEBOOK
-
-//$CALLBACK_CHALLENGE
-
-//$CALLBACK_LEADERBOARD
-
-//$CALLBACK_ACHIEVEMENT
 
 /*
  * UI events
  */
 
-//$UI_SCREENS
-
 $("#intro_playbutton").click(function() {
   selectsnd();
 
-  //$UI_GOTO_MENU
-});
-
-//$UI_MULTIPLAYER
-
-//$UI_FACEBOOK
-
-//$UI_CHALLENGES
-
-//$UI_SCORES
-
-//$UI_ACHIEVEMENT
+  });
 
 /*
  * Starting Nuggeta
  */
-
-//$VAR_ACHIEVEMENT
-
-//$VAR_MULTIPLAYER
-
-//$VAR_FACEBOOK
 
 var pump = function pump(){
     messages = nuggetaPlug.pump();
@@ -961,17 +923,12 @@ var pump = function pump(){
             message = messages[i];
             log.info("received message "  + message.toString());
 
-            if (message instanceof ConnectionReady) {
-    onConnectionReady(message);
-} else if (message instanceof ConnectionFail) {
-    onConnectionFail(message);
-}
+			if (message instanceof ConnectionReady) {
+			    onConnectionReady(message);
+			} else if (message instanceof ConnectionFail) {
+			    onConnectionFail(message);
+			}
 
-            //$PUMP_MULTIPLAYER
-            //$PUMP_FACEBOOK
-            //$PUMP_CHALLENGES
-            //$PUMP_LEADERBOARD
-            //$PUMP_ACHIEVEMENT
             else {
                 log.info("no handled message " + message.toString());
             }
