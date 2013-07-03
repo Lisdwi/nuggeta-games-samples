@@ -8,7 +8,9 @@ $(document).ready(function() {
     body.appendChild(elt);
   };
 
+  $('body').append(data);
   loadScript('./js/main.js');
   loadScript('./js/help.js');
   loadScript('./js/license.js');
+
 });
