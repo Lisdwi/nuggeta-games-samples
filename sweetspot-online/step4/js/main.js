@@ -1012,32 +1012,9 @@ function onPlayerEnterGame(message) {
     }
 }
 
-function onMyTurnNotification(message) {
-    enable_user_input();
-    SweetSpot.activeplayer = 0;
-    $("#game_player1active").show();
-    $("#game_player2active").hide();
-}
-
 function onPlayerUnjoinGame(message) {
     log.info(message.getPlayer().getName() + " left game " + message.getGameId());
     $("#player_left_dlg").show();
-} 
-
-function onSelectedColumn(message) {
-    log.info("opponent played " + message.toString());
-    SweetSpot.activeplayer = 1;
-    _startMove(message.getColumn());
-}
-
-function onPlayerTurnNotification(message) {
-    ignore_user_input();
-    $("#game_player1active").hide();
-    $("#game_player2active").show();
-}
-
-function onThinking(message) {
-    _updateSelector(message.getColumn());
 }
 
 function onJoinGameResponse(message) {
