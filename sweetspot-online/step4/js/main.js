@@ -210,20 +210,19 @@ function no_more_moves() {
                     }
 
                     function gamesound(file) {
-                      this.soundobj = new Audio(file);
-                      this.isPlaying = false;
-                      this.play = function () {
-                        if (this.isPlaying) {
-                          this.soundobj.pause();
-                          this.soundobj.currentTime = 0;
-                          this.isPlaying = false;
-                      }
-
-                      this.soundobj.play();
-                      this.isPlaying = true;
-                  };
-              }
-
+				       this.file = file;
+				        this.soundobj = new Array();
+				        this.soundobj.push(new Audio(file));
+				        this.soundobj.push(new Audio(file));
+				        this.idx = 0;
+				        this.play = function play() {
+				            /* create two instances of the file to play sequentially if calls */
+				            /* come too fast, otherwise the second call will be ignored */
+				            this.soundobj[this.idx].play();
+				            this.idx = (this.idx + 1)%2;
+				        };
+				}
+				
               function settype(type) {
                 var tags = ["#type_onegame", "#type_bestofthree",
                 "#type_bestoffive"];
@@ -1170,7 +1169,7 @@ var pump = function pump(){
 
 setInterval(pump,20);
 
-var nuggetaPlug = new NuggetaPlug().init("nuggeta://sweetspot_1d51f7cc-91b7-45ee-8b2d-c0ad638b7432-1");
+var nuggetaPlug = new NuggetaPlug().init("127.0.0.1:5022");
 nuggetaPlug.start();
 
 })()
