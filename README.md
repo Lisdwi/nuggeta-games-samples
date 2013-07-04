@@ -1,6 +1,8 @@
 nuggeta-games-samples
 =====================
 
+<img src="https://developer.tizen.org/sites/default/files/admins/sweetspot-icon.png"/>
+
 Nuggeta is a crossplatform, multiplayer and social developement toolkit for game studios. This github project is open source and propose you a tutorial series allowing you to learn how to use Nuggeta easily.
 
 This project show you step by step how we have turn more interactive an existing four in row game called  <a target="_blank"  href="https://01.org/html5webapps/webapps/sweetspot"> Sweetspot proposed freely by Intel & Samsung </a> as demo app for the Tizen OS. 
