@@ -962,11 +962,7 @@ function initFirstGame() {
 function endGame() {
     create_game();
 
-    if (loggedPlayer != null) {
-        goToScreen("logged_menu");
-    } else {
-        goToScreen("menu_page");
-    }
+	quit_game();
 
     nuggetaPlug.unjoinGame(game.getId());
 }
@@ -1013,11 +1009,6 @@ function onJoinGameResponse(message) {
     }
 }
 
-function quit_game() {
-	goToScreen("menu_page");
-}
-
-
 function onSearchImmediateGameResponse(message) {
     game = message.getGame();
 
@@ -1037,6 +1028,12 @@ function onGameStateChange(message) {
 
         nuggetaPlug.nextPlayerTurn(game.getId());
     }
+}
+
+
+
+function quit_game() {
+	goToScreen("menu_page");
 }
 
 
