@@ -1,7 +1,7 @@
 nuggeta-games-samples
 =====================
 
-<img src="https://developer.tizen.org/sites/default/files/admins/sweetspot-icon.png"/>
+<img src="http://nuggeta.net/images/nuggeta.png"/>
 
 Nuggeta is a crossplatform, multiplayer and social developement toolkit for game studios. This github project is open source and propose you a tutorial series allowing you to learn how to use Nuggeta easily.
 
