@@ -1093,6 +1093,10 @@ $
 
 $("#intro_playbutton").click(function() {
   selectsnd();
+  
+  if ($(this).html() != "Play") {
+  	return;
+  }
 
   showScreen("menu_page");
 
@@ -1169,7 +1173,8 @@ var pump = function pump(){
 
 setInterval(pump,20);
 
-var nuggetaPlug = new NuggetaPlug().init("127.0.0.1:5022");
+$("#intro_playbutton").html("Connecting...");
+var nuggetaPlug = new NuggetaPlug().init("nuggeta://sweetspot_1d51f7cc-91b7-45ee-8b2d-c0ad638b7432-1");
 nuggetaPlug.start();
 
 })()
