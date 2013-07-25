@@ -1099,7 +1099,7 @@ function onGetThirdPartyFriendResponse(message) {
         }
 
         $('.challenge_link').click(function () {
-            nuggetaPlug.challengeThirdPartyFriend($(this).attr('name'), "Challenge your friend", "Challenge your friend", null);
+            nuggetaPlug.challengeThirdPartyFriend($(this).attr('name'), "I want play with you", "Come playing SweetSpot 4 in a row game online with me. ", "http://games.nuggeta.com/sweetspot/connected/images/3Dcandy-blue128.png","http://games.nuggeta.com/sweetspot/connected/index.html");
         });
     }
 }

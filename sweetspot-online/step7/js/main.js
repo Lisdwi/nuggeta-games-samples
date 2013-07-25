@@ -1103,7 +1103,7 @@ function onGetThirdPartyFriendResponse(message) {
         }
 
         $('.challenge_link').click(function () {
-            nuggetaPlug.challengeThirdPartyFriend($(this).attr('name'), "Challenge your friend", "Challenge your friend", null);
+            nuggetaPlug.challengeThirdPartyFriend($(this).attr('name'), "I want play with you", "Come playing SweetSpot 4 in a row game online with me. ", "http://games.nuggeta.com/sweetspot/connected/images/3Dcandy-blue128.png","http://games.nuggeta.com/sweetspot/connected/index.html");
         });
     }
 }
@@ -1135,7 +1135,9 @@ function onChallengeAccepted(message) {
 }
 
 function onChallengeThirdPartyFriendResponse(message) {
-    showScreen("wait_challenge_page");
+    if (message.getChallengeThirdPartyFriendStatus() == ChallengeThirdPartyFriendStatus.SENT) {
+        showScreen("wait_challenge_page");
+    }
 }
 
 function onGetChallengesResponse(message) {
@@ -1295,7 +1297,8 @@ $("#win_submit_score").click(function() {
     var scoreValue = ((42 - shotCount) * 1234);
     if (loggedPlayer != null) {
         nuggetaPlug.submitScoreRequest(scoreValue, "ld1", function(response) {
-            nuggetaPlug.publishThirdPartyMessage(loggedPlayer.getThirdPartyId(), "SweetSpot online", "I made a score of " + scoreValue + " points", null);
+        
+        nuggetaPlug.publishThirdPartyMessage(loggedPlayer.getThirdPartyId(), "SweetSpot online", "I made a score of " + scoreValue + " points",  "http://games.nuggeta.com/sweetspot/connected/images/3Dcandy-blue128.png","http://games.nuggeta.com/sweetspot/connected/index.html");
         });
     } else {
         var nick = prompt("Please enter your name:", "");
