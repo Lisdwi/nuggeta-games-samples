@@ -1078,14 +1078,6 @@ function onThirdPartyLoginResponse(message) {
 
         SweetSpot.player1name = loggedPlayer.getName();
         $("#game_player1avatar").html('<img src="' + nuggetaPlug.getAvatar(loggedPlayer) + '"/>');
-
-        greenColorUnlocked = false;
-        orangeColorUnlocked = false;
-
-        $("#player_player1green").addClass('locked');
-        $("#player_player1orange").addClass('locked');
-
-        nuggetaPlug.getAchievementBoard();
     }
 }
 
@@ -1095,12 +1087,8 @@ function onGetThirdPartyFriendResponse(message) {
         var thirdPartyFriends = message.getThirdPartyFriends();
         for (var i = 0; i < thirdPartyFriends.length; i++) {
             var avatarUrl = nuggetaPlug.getAvatar(thirdPartyFriends[i]);
-            $('#friend_list').append('<div class="friend_item"><table style="width:100%;"><tr><td><img src="' + avatarUrl + '"/> ' + thirdPartyFriends[i].getName() + '</td><td style="text-align:right;"> <div class="challenge_link" name="' + thirdPartyFriends[i].getThirdPartyId() + '">Challenge</div></td></tr></table></div>');
+            $('#friend_list').append('<div class="friend_item"><table style="width:100%;"><tr><td><img src="' + avatarUrl + '"/> ' + thirdPartyFriends[i].getName() + '</td></tr></table></div>');
         }
-
-        $('.challenge_link').click(function () {
-            nuggetaPlug.challengeThirdPartyFriend($(this).attr('name'), "I want play with you", "Come playing SweetSpot 4 in a row game online with me. ", "http://games.nuggeta.com/sweetspot/connected/images/3Dcandy-blue128.png","http://games.nuggeta.com/sweetspot/connected/index.html");
-        });
     }
 }
 
@@ -1188,6 +1176,16 @@ $("#quick_match").click(function() {
     showScreen("choose_color_page");
 });
 
+$("#challenge_friend").click(function() {
+  showScreen("friend_page");
+
+  nuggetaPlug.getThirdPartyFriends();
+});
+
+$("#friend_page_back").click(function() {
+    backToPreviousScreen();
+});
+
 
 
 /*
@@ -1261,7 +1259,7 @@ var pump = function pump(){
 setInterval(pump,20);
 
 $("#intro_playbutton").html("Connecting...");
-var nuggetaPlug = new NuggetaPlug().init("nuggeta://sweetspot_1d51f7cc-91b7-45ee-8b2d-c0ad638b7432-1");
+var nuggetaPlug = new NuggetaPlug().init("nuggeta://sweetspot_step5_1d51f7cc-91b7-45ee-8b2d-c0ad638b7432-1");
 nuggetaPlug.start();
 
 })()

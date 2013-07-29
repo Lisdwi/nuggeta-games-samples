@@ -1134,5 +1134,60 @@ input:focus {
 }
 
 #quick_match {
-    top: 250px;
+    top: 150px;
+}
+
+#challenge_friend {
+    top: 380px;
+}
+
+#friend_page_name {
+	position: absolute;
+    text-align: center;
+    line-height: 71px;
+    font-family: 'Yellowtail';
+    font-size: 60pt;
+    color: #616161;
+    text-shadow: -2px -2px 0px #fff;
+    text-align: center;
+    top: 30px;
+    width: 100%;
+}
+
+#friend_list {
+    position: absolute;
+    top: 100px;
+    width: 650px;
+    left: 200px;
+    height: 490px;
+    overflow: auto;
+}
+
+#friend_list .friend_item {
+    line-height: 71px;
+    font-family: 'Yellowtail';
+    font-size: 35pt;
+    color: #25aae1;
+    text-shadow: -2px -2px 0px #fff;
+    margin: 30px 0px;
+}
+
+#friend_list .friend_item img {
+    vertical-align: middle;
+    width: 80px;
+}
+
+#friend_list .challenge_link, #challenges_list .accept_link, #game_list .play_link  {
+    background: url(../images/Ribbon-red-left-small.png) no-repeat;
+    color: #FFF;
+    font-family: 'Yellowtail';
+    font-size: 22pt;
+    text-shadow: none;
+    width: 180px;
+    height: 66px;
+    padding-right: 20px;
+    float: right;
+    cursor: pointer;
+    background-position: right;
+    padding-bottom: 8px;
 }

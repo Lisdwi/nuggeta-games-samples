@@ -829,8 +829,9 @@ var gameTypePage = function () {
 	    showScreen("searching_player_page");
 	} else {
 	    nuggetaPlug.joinGame(gameIdToJoin);
+	    showScreen("wait_challenge_page");
 	}
-
+	
 $
 }
 });
@@ -967,6 +968,21 @@ function onConnectionReady(message) {
     $("#intro_playbutton").text("Play");
 
     nuggetaPlug.getAchievementBoard();
+}
+
+function onGetThirdPartyFriendResponse(message) {
+    $('#friend_list').html("");
+    if (message.getGetThirdPartyFriendsStatus() == GetThirdPartyFriendsStatus.SUCCESS) {
+        var thirdPartyFriends = message.getThirdPartyFriends();
+        for (var i = 0; i < thirdPartyFriends.length; i++) {
+            var avatarUrl = nuggetaPlug.getAvatar(thirdPartyFriends[i]);
+            $('#friend_list').append('<div class="friend_item"><table style="width:100%;"><tr><td><img src="' + avatarUrl + '"/> ' + thirdPartyFriends[i].getName() + '</td><td style="text-align:right;"> <div class="challenge_link" name="' + thirdPartyFriends[i].getThirdPartyId() + '">Challenge</div></td></tr></table></div>');
+        }
+
+        $('.challenge_link').click(function () {
+            nuggetaPlug.challengeThirdPartyFriend($(this).attr('name'), "I want play with you", "Come playing SweetSpot 4 in a row game online with me. ", "http://games.nuggeta.com/sweetspot/connected/images/3Dcandy-blue128.png","http://games.nuggeta.com/sweetspot/connected/index.html");
+        });
+    }
 }
 
 
@@ -1128,38 +1144,6 @@ function onThirdPartyLoginResponse(message) {
     }
 }
 
-function onGetThirdPartyFriendResponse(message) {
-    $('#friend_list').html("");
-    if (message.getGetThirdPartyFriendsStatus() == GetThirdPartyFriendsStatus.SUCCESS) {
-        var thirdPartyFriends = message.getThirdPartyFriends();
-        for (var i = 0; i < thirdPartyFriends.length; i++) {
-            var avatarUrl = nuggetaPlug.getAvatar(thirdPartyFriends[i]);
-            $('#friend_list').append('<div class="friend_item"><table style="width:100%;"><tr><td><img src="' + avatarUrl + '"/> ' + thirdPartyFriends[i].getName() + '</td><td style="text-align:right;"> <div class="challenge_link" name="' + thirdPartyFriends[i].getThirdPartyId() + '">Challenge</div></td></tr></table></div>');
-        }
-
-        $('.challenge_link').click(function () {
-            nuggetaPlug.challengeThirdPartyFriend($(this).attr('name'), "I want play with you", "Come playing SweetSpot 4 in a row game online with me. ", "http://games.nuggeta.com/sweetspot/connected/images/3Dcandy-blue128.png","http://games.nuggeta.com/sweetspot/connected/index.html");
-        });
-    }
-}
-
-function onLogoutResponse(message) {
-    greenColorUnlocked = false;
-    orangeColorUnlocked = false;
-
-    SweetSpot.player1name = "Player1";
-    $("#game_player1avatar").html('');
-
-    $("#player_player1green").addClass('locked');
-    $("#player_player1orange").addClass('locked');
-
-    nuggetaPlug.getAchievementBoard();
-
-    backToPreviousScreen();
-
-    loggedPlayer = null;
-}
-
 
 
 function onChallengeAccepted(message) {
@@ -1299,13 +1283,17 @@ $("#quick_match").click(function() {
     showScreen("choose_color_page");
 });
 
-
-
 $("#challenge_friend").click(function() {
   showScreen("friend_page");
 
   nuggetaPlug.getThirdPartyFriends();
 });
+
+$("#friend_page_back").click(function() {
+    backToPreviousScreen();
+});
+
+
 
 $("#challenges").click(function() {
   showScreen("challenge_list_page");
@@ -1317,10 +1305,6 @@ $("#challenges").click(function() {
 });
 
 $("#challenge_list_back").click(function() {
-    backToPreviousScreen();
-});
-
-$("#friend_page_back").click(function() {
     backToPreviousScreen();
 });
 

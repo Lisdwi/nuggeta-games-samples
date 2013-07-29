@@ -814,8 +814,9 @@ var gameTypePage = function () {
 	    showScreen("searching_player_page");
 	} else {
 	    nuggetaPlug.joinGame(gameIdToJoin);
+	    showScreen("wait_challenge_page");
 	}
-
+	
 $
 }
 });
@@ -1082,14 +1083,6 @@ function onThirdPartyLoginResponse(message) {
 
         SweetSpot.player1name = loggedPlayer.getName();
         $("#game_player1avatar").html('<img src="' + nuggetaPlug.getAvatar(loggedPlayer) + '"/>');
-
-        greenColorUnlocked = false;
-        orangeColorUnlocked = false;
-
-        $("#player_player1green").addClass('locked');
-        $("#player_player1orange").addClass('locked');
-
-        nuggetaPlug.getAchievementBoard();
     }
 }
 
@@ -1232,13 +1225,17 @@ $("#quick_match").click(function() {
     showScreen("choose_color_page");
 });
 
-
-
 $("#challenge_friend").click(function() {
   showScreen("friend_page");
 
   nuggetaPlug.getThirdPartyFriends();
 });
+
+$("#friend_page_back").click(function() {
+    backToPreviousScreen();
+});
+
+
 
 $("#challenges").click(function() {
   showScreen("challenge_list_page");
@@ -1250,10 +1247,6 @@ $("#challenges").click(function() {
 });
 
 $("#challenge_list_back").click(function() {
-    backToPreviousScreen();
-});
-
-$("#friend_page_back").click(function() {
     backToPreviousScreen();
 });
 
@@ -1340,7 +1333,7 @@ var pump = function pump(){
 setInterval(pump,20);
 
 $("#intro_playbutton").html("Connecting...");
-var nuggetaPlug = new NuggetaPlug().init("nuggeta://sweetspot_1d51f7cc-91b7-45ee-8b2d-c0ad638b7432-1");
+var nuggetaPlug = new NuggetaPlug().init("nuggeta://sweetspot_step6_1d51f7cc-91b7-45ee-8b2d-c0ad638b7432-1");
 nuggetaPlug.start();
 
 })()

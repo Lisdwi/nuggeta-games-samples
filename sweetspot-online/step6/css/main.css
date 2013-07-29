@@ -1134,23 +1134,24 @@ input:focus {
 }
 
 #quick_match {
-    top: 250px;
-}
-
-/*
- * Nuggeta - Sweetspot tutorial - Step 6
- */
-
-#quick_match {
-    top: 100px;
+    top: 150px;
 }
 
 #challenge_friend {
-    top: 280px;
+    top: 380px;
 }
 
-#challenges {
-    top: 450px;
+#friend_page_name {
+	position: absolute;
+    text-align: center;
+    line-height: 71px;
+    font-family: 'Yellowtail';
+    font-size: 60pt;
+    color: #616161;
+    text-shadow: -2px -2px 0px #fff;
+    text-align: center;
+    top: 30px;
+    width: 100%;
 }
 
 #friend_list {
@@ -1189,6 +1190,35 @@ input:focus {
     cursor: pointer;
     background-position: right;
     padding-bottom: 8px;
+}
+
+/*
+ * Nuggeta - Sweetspot tutorial - Step 6
+ */
+
+#quick_match {
+    top: 100px;
+}
+
+#challenge_friend {
+    top: 280px;
+}
+
+#challenges {
+    top: 450px;
+}
+
+#challenges_page_name {
+	position: absolute;
+    text-align: center;
+    line-height: 71px;
+    font-family: 'Yellowtail';
+    font-size: 60pt;
+    color: #616161;
+    text-shadow: -2px -2px 0px #fff;
+    text-align: center;
+    top: 30px;
+    width: 100%;
 }
 
 #challenges_list {
